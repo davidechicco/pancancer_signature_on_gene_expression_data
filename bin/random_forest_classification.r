@@ -1,9 +1,9 @@
 setwd(".")
 options(stringsAsFactors = FALSE)
 cat("\014")
-set.seed(12)
+set.seed(11)
 
-execution_number <- 10
+execution_number <- 100
 
 EXP_ARG_NUM <- 2
 
