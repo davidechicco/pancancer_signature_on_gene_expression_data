@@ -30,9 +30,9 @@ library("easypackages")
 libraries(list.of.packages)
 libraries(listOfBiocPackages)
 
-GSE_code <- "GSE16237"
-thisGEOplatform <- "GPL570"
-datasetName <-  "Hiyama2010"
+GSE_code <- "GSE16237" # this line will change for each different dataset
+thisGEOplatform <- "GPL570" # this line will change for each different dataset
+datasetName <-  "Hiyama2010" # this line will change for each different dataset
 
 
 gset <- getGEO(GSE_code,  GSEMatrix =TRUE, getGPL=FALSE)
@@ -53,11 +53,11 @@ LABEL_DETECTED <- TRUE
     library("plyr")
     label_list <- c()
     i <- 1
-    for(thisTitle in gset@phenoData@data$"outcome of the patient:ch1") {
+    for(thisTitle in gset@phenoData@data$"outcome of the patient:ch1") { # this line will change for each different dataset
       
-	if(grepl("Died of disease", thisTitle)) {
+	if(grepl("Died of disease", thisTitle)) { # this line will change for each different dataset
 	      label_list[[i]] <-  0
-	 } else if(grepl("Alive", thisTitle)) {
+	 } else if(grepl("Alive", thisTitle)) { # this line will change for each different dataset
 	    label_list[[i]] <- 1
 	  }
 	    i <- i + 1
