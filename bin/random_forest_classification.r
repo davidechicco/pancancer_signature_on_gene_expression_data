@@ -13,17 +13,30 @@ TRAIN_SET_OVERSAMPLING_SYNTHETIC <- FALSE
 # fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Hiyama2010_GSE16237_probesets_dataset_8454.csv"
 
 # fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Smith2010_GSE17536_probesets_dataset_2181.csv"
-fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Smith2010_GSE17536_gene_symbols_dataset_2181.csv"
+# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Smith2010_GSE17536_gene_symbols_dataset_2181.csv"
 
+# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Kim2016_GSE76701_gene_symbols_dataset_7113.csv"
+# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Kim2016_GSE76701_probesets_dataset_7113.csv"
+
+
+# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Bong2010_GSE15852_probesets_dataset_3875.csv"
+# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Bong2010_GSE15852_gene_symbols_dataset_3875.csv"
+# targetName <- "cancer"
+
+# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Bilbault2017_GSE33118_probesets_dataset_4687.csv"
+# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Bilbault2017_GSE33118_gene_symbols_dataset_4687.csv"
+
+fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Hiyama2010_GSE16237_our_pancancer_signature_probesets_dataset_188.csv"
 
 targetName <- "survival"
+
 
 cat("fileName: ", fileName, "\n", sep="")
 cat("targetName: ", targetName, "\n", sep="")
 
 list.of.packages <- c("easypackages", "PRROC", "e1071", "randomForest","class", "gmodels", "formula.tools", "dplyr", "pastecs", "ROSE")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages)
+if(length(new.packages)) install.packages(new.packages, repos="https://utstat.toronto.edu/cran/")
 
 library("easypackages")
 libraries(list.of.packages)
@@ -166,7 +179,7 @@ cat("Number of executions = ", execution_number, "\n", sep="")
 # statistics on the dataframe of confusion matrices
 statDescConfMatr <- stat.desc(confMatDataFrame)
 meanSigmaRowResults <- (statDescConfMatr)[c("mean","std.dev"),]
-print(dec_three(statDescConfMatr))
+print(statDescConfMatr)
 cat("\n\n=== === === ===\n")
 print(dec_three(meanSigmaRowResults))
 cat("\n\n=== === === ===\n\n\n")

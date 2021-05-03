@@ -1,11 +1,11 @@
 setwd(".")
 options(stringsAsFactors = FALSE)
 cat("\014")
-set.seed(11)
+# set.seed(11)
 
 list.of.packages <- c("easypackages", "plyr") # other packages
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-if(length(new.packages)) install.packages(new.packages, repos="https://utstat.toronto.edu/cran/")
+if(length(new.packages)) install.packages(new.packages)
 
 source("utils.r")
 
@@ -30,9 +30,9 @@ library("easypackages")
 libraries(list.of.packages)
 libraries(listOfBiocPackages)
 
-GSE_code <- "GSE17536"
+GSE_code <- "GSE76701"
 thisGEOplatform <- "GPL570"
-datasetName <-  "Smith2010"
+datasetName <-  "Kim2016"
 
 
 gset <- getGEO(GSE_code,  GSEMatrix =TRUE, getGPL=FALSE)
@@ -53,11 +53,11 @@ LABEL_DETECTED <- FALSE
     library("plyr")
     label_list <- c()
     i <- 1
-    for(thisTitle in gset@phenoData@data$"overall_event") {
+    for(thisTitle in gset@phenoData@data$"source_name_ch1") {
       
-	if(grepl("no death", thisTitle)) {
+	if(grepl("Non-failing adult human heart", thisTitle)) {
 	      label_list[[i]] <-  1
-	 } else if(grepl("death", thisTitle)) {
+	 } else if(grepl("Failing adult human heart", thisTitle)) {
 	    label_list[[i]] <- 0
 	  }
 	    i <- i + 1
@@ -79,15 +79,9 @@ LABEL_DETECTED <- FALSE
 
     ## selection based on signature probesets
 
-    VanLaar_probesets_signature <- c("1553954_at", "1554078_s_at", "1555832_s_at", "1555950_a_at", "1560089_at", "1560587_s_at", "1563796_s_at", "200006_at", "200632_s_at", "200665_s_at", "200827_at", "200838_at", "200839_s_at", "200931_s_at", "200983_x_at", "201012_at", "201141_at", "201170_s_at", "201185_at", "201261_x_at", "201289_at", "201323_at", "201422_at", "201426_s_at", "201578_at", "201590_x_at", "201666_at",
-    "201925_s_at", "201926_s_at", "201939_at", "201951_at", "202068_s_at", "202237_at", "202238_s_at", "202419_at", "202457_s_at", "202478_at", "202839_s_at", "202887_s_at", "202904_s_at", "202939_at", "202949_s_at", "203072_at", "203083_at", "203382_s_at", "203476_at", "203895_at", "204264_at", "204472_at", "204620_s_at", "204679_at", "205677_s_at", "205963_s_at", "207543_s_at", "207574_s_at", "208891_at", "208892_s_at",
-    "208893_s_at", "208918_s_at", "208961_s_at", "209043_at", "209101_at", "209184_s_at", "209185_s_at", "209193_at", "209345_s_at", "209386_at", "209387_s_at", "209457_at", "209545_s_at", "209624_s_at", "209711_at", "209875_s_at", "210095_s_at", "210275_s_at", "210427_x_at", "210495_x_at", "210512_s_at", "210517_s_at", "210592_s_at", "210652_s_at", "210845_s_at", "211074_at", "211719_x_at", "211924_s_at", "211928_at", "211988_at",
-    "212013_at", "212143_s_at", "212171_x_at", "212463_at", "212464_s_at", "212501_at", "212632_at", "212884_x_at", "213274_s_at", "213503_x_at", "213905_x_at", "214581_x_at", "214620_x_at", "214866_at", "215033_at", "215034_s_at", "215792_s_at", "216392_s_at", "216442_x_at", "217762_s_at", "217773_s_at", "217996_at", "218213_s_at", "218698_at", "218856_at", "218902_at", "219038_at", "219206_x_at", "219539_at", "221419_s_at",
-    "221479_s_at", "221563_at", "221648_s_at", "221656_s_at", "221730_at", "221731_x_at", "221745_at", "222421_at", "222994_at", "223003_at", "223122_s_at", "223163_s_at", "223312_at", "223454_at", "223455_at", "224602_at", "224606_at", "224657_at", "224777_s_at", "224806_at",
-    "224890_s_at", "224911_s_at", "225010_at", "225011_at", "225337_at", "225494_at", "225670_at", "225750_at", "226041_at", "226594_at", "226648_at", "226727_at", "226987_at", "227143_s_at", "227338_at", "227735_s_at", "227736_at", "227961_at", "229676_at", "231576_at", "234983_at", "241355_at", "242648_at", "35156_at", "36711_at", "58780_s_at")
+    DavidLin_probesets_signature <- c("227228_s_at", "244218_at", "237001_at", "228512_at", "226764_at", "235036_at", "204021_s_at", "222876_s_at", "211783_s_at", "214149_s_at", "227682_at", "211300_s_at", "1564154_at", "1557487_at", "235380_at", "215743_at", "229695_at", "227900_at", "243341_at", "227410_at", "233341_s_at", "242197_x_at", "228026_at", "241343_at", "220985_s_at", "205456_at", "205976_at", "206420_at", "211900_x_at", "221860_at", "207521_s_at", "216246_at", "1564155_x_at", "205387_s_at", "205005_s_at", "244828_x_at", "208900_s_at", "215611_at", "218280_x_at", "219151_s_at", "1558827_a_at", "216609_at", "238439_at", "202905_x_at", "209972_s_at", "225793_at", "221011_s_at", "211893_x_at", "223502_s_at", "243810_at", "221058_s_at", "209092_s_at", "212599_at", "239673_at", "209871_s_at", "235543_at", "238121_at", "225746_at", "232262_at", "228520_s_at", "229235_at", "228466_at", "239346_at", "222820_at", "242051_at", "243982_at", "214163_at", "224518_s_at", "226158_at", "1560163_at", "225688_s_at", "207351_s_at", "242622_x_at", "235434_at", "1558809_s_at", "1558996_at", "213986_s_at", "224698_at", "", "238058_at", "234734_s_at", "220500_s_at", "235507_at", "213906_at", "218338_at", "221768_at", "37793_r_at", "243026_x_at", "206513_at", "230526_at", "229544_at", "204747_at", "224516_s_at", "218362_s_at", "1555830_s_at", "214316_x_at", "237346_at", "1555960_at", "243916_x_at", "224812_at", "206099_at")
 
-    
-    patients_data_filtered_ourSignature <- (gene_expression_with_labels[gene_expression_with_labels$ID %in% c(VanLaar_probesets_signature, "survival"), ])
+    patients_data_filtered_ourSignature <- (gene_expression_with_labels[gene_expression_with_labels$ID %in% c(DavidLin_probesets_signature, "survival"), ])
       
     print("dim(patients_data_filtered_ourSignature)\n")
     print(dim(patients_data_filtered_ourSignature))
@@ -115,8 +109,7 @@ LABEL_DETECTED <- FALSE
     
     ## selection based on signature gene symbols
     
-    VanLaar_gene_symbols_signature <- c("ALG14", "DNAJA3", "KLF6", "CD55", "LOC286208", "PRDX5", "EARS2", "PARK7", "NDRG1", "SPARC", "PLOD1", "CTSB", "CTSB", "VCL", "CD59", "ANXA1", "GPNMB", "BHLHE40", "HTRA1", "BGN", "CYR61", "EBNA1BP2", "IFI30", "VIM", "PODXL", "ANXA2", "TIMP1", "CD55", "CD55", "PLK2", "ALCAM", "LDLR", "NNMT", "NNMT", "KDSR", "PPP3CA", "TRIB2", "NDUFB7", "DDIT4", "LSM5", "ZMPSTE24", "FHL2", "MYO1E", "THBS2", "APOE", "TPBG", "PLCB4", "CPT2", "GEM", "VCAN", "KCNK1", "DLEU1", "DNAJA3", "P4HA1", "GADD45B", "DUSP6", "DUSP6", "DUSP6", "NADK", "KLF6", "PAPSS1", "CTGF", "IRS2", "IRS2", "PIM1", "PI4K2A", "TM4SF1", "TM4SF1", "DUSP5", "RIPK2", "MCCC2", "SLC35D1", "SPP1", "IGFBP3", "ZFAND5", "ANXA2", "FN1", "VEGFA", "AKAP12", "SAT1", "TTC39A", "PLAUR", "FOLR1", "FN1", "PLAUR", "DYNC1H1", "SMARCE1", "PXDN", "IGFBP3", "VEGFA", "CD59", "FN1", "CEBPB", "STX7", "APOE", "CTSB", "ANXA2", "BGN", "TNFRSF21", "PAM", "PLAUR", "TM4SF1", "TM4SF1", "DNAJC11", "SEC23IP", "FN1", "RAB31", "NDUFA4", "PHLDA1", "C11orf10", "APIP", "TNFRSF21", "NOTCH1", "MORC4", "TMBIM4", "GEMIN6", "BNIP3L", "DUSP10", "ARHGEF10L", "COL5A2", "VCAN", "DCAF7", "UBE2H", "PRDX5", "C19orf43", "SFRP2", "ZC3HC1", "C2orf7", "CXCL16", "TCHP", "C4orf3", "KLF6", "ERRFI1", "PAFAH1B2", "TRIM25", "C7orf59", "DCBLD2", "CCDC6", "PRKAR2A", "ABHD2", "DYNLL2", "FAM173B", "NAPEPLD", "HIF1AN", "CISD3", "RBM15B", "BID", "LOC440983", "C10orf99", "C10orf99", "CTSB", "MTPAP", "HR", "KLHL8", "R3HCC1", "MAFF", "FLJ10357")
-
+    DavidLin_gene_symbols_signature <- c("CCDC88C", "PTCD3", "ZNF827", "LIX1L", "PURA", "ADAP2", "MTA1", "ATP6V0E1",  "TP53",    "NMT2",  "CBLB",  "FAM43A", "POLR1B", "CD36", "RP5- 1000E10.4", "RNASEH1", "RNF170", "CD3E", "FASTKD2", "IGSF6", "CD6", "HNRNPL", "ATP2A3",   "CGB", "CGB5”, “CGB7", "CGB8", "NMT2", "NAF1", "TOP1", "TCF12", "HIST2H2AA3", "HIST2H2AA4", "RABL2A", "RABL2B", "ZNF831", "TXN", "ANKRD22", "NBN", "JTV1", "LIX1L", "LBH", "CD6", "TNFSF13B",  "CKLF", "GLOD4", "AUTS2",  "APBA2",  "GK5", "RAB11FIP4", "PIGL", "APLP2",    "TNRC6C",  "KLHL28", "HSPB11", "ZNF559", "KLHL24", "LOC1001295 10", "PHLDB2", "SH2D2A", "PTEN",  "LOC284408", "FOXP1", "C19orf6", "FAM62B", "FLJ27365", "LOC150381", "TNRC6A", "RABL2A", "RABL2B", "PCMTD1", "MYBL1", "PHC1", "PHC1B", "SFPQ", "RAD51L3", "XIAP", "AIM2", "LOC100131096",  "IFIT3", "CXXC5", "DIS3", "FAM62B",  "TGDS", "HINT1", "UBLCP1", "HIBADH", "PRKCH")
 
     library("geneExpressionFromGEO")
     associateSymbolsToGenes <- TRUE
@@ -126,7 +119,7 @@ LABEL_DETECTED <- FALSE
     labels_df$"GeneSymbol" <- "survival"
     gene_expression_with_labels_symbols <- rbind(labels_df, geneExpressionDF)
     
-    patients_data_filtered_symbols_signature <- (gene_expression_with_labels_symbols[gene_expression_with_labels_symbols$"GeneSymbol" %in% c(VanLaar_gene_symbols_signature, "survival"), ])
+    patients_data_filtered_symbols_signature <- (gene_expression_with_labels_symbols[gene_expression_with_labels_symbols$"GeneSymbol" %in% c(DavidLin_gene_symbols_signature, "survival"), ])
     
     rownames(patients_data_filtered_symbols_signature) <- make.unique(patients_data_filtered_symbols_signature$"GeneSymbol")
     patients_data_filtered_symbols_signature$"GeneSymbol" <- NULL
