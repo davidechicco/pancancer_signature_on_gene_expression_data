@@ -28,5 +28,17 @@
     Chen_prostate_cancer_101371journalpone004517_probesets_signature <- c("221523_s_at", "214527_s_at", "208490_x_at", "207016_s_at", "213293_s_at", "209487_at", "221667_s_at")
 
 # merging all signatures together
-all_signatures <- c(DCangelosi_neuroblastoma_103390cancers12092343_probesets_signature, VanLaar_colorectal_cancer_101038sjbjc6605970_probesets_signature, Hallett_breast_cancer_101038srep00227_probesets_signature, Gyorffy_lung_cancer_101371journalpone0082241_probesets_signature, Chen_prostate_cancer_101371journalpone004517_probesets_signature)
+our_merged_pancancer_prognostic_signature <- sort(c(DCangelosi_neuroblastoma_103390cancers12092343_probesets_signature, VanLaar_colorectal_cancer_101038sjbjc6605970_probesets_signature, Hallett_breast_cancer_101038srep00227_probesets_signature, Gyorffy_lung_cancer_101371journalpone0082241_probesets_signature, Chen_prostate_cancer_101371journalpone004517_probesets_signature))
 
+cat("\nour merged pan-cancer prognostic signature:  \n")
+cat(our_merged_pancancer_prognostic_signature, sep=", ")
+cat("\n\n")
+
+cat("# number of total probesets in our merged pan-cancer signature: ")
+cat(length(our_merged_pancancer_prognostic_signature), "\n")
+
+cat("# number of duplicate probesets of our merged pan-cancer signature: ")
+cat(length(our_merged_pancancer_prognostic_signature[duplicated(our_merged_pancancer_prognostic_signature)]), "\n")
+
+cat("list of duplicate probesets: ")
+cat(our_merged_pancancer_prognostic_signature[duplicated(our_merged_pancancer_prognostic_signature)], "\n")
