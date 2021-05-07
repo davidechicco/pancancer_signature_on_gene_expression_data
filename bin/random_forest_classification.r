@@ -7,26 +7,68 @@ execution_number <- 100
 
 EXP_ARG_NUM <- 2
 
-TRAIN_SET_OVERSAMPLING_SYNTHETIC <- FALSE
+TRAIN_SET_OVERSAMPLING_SYNTHETIC <- TRUE
 
-# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Hiyama2010_GSE16237_gene_symbols_dataset_8454.csv"
-# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Hiyama2010_GSE16237_probesets_dataset_8454.csv"
+# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/data/Hiyama2010_GSE16237_neuroblastoma_our_pancancer_signature_probesets_dataset_188.csv"
 
-# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Smith2010_GSE17536_probesets_dataset_2181.csv"
-# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Smith2010_GSE17536_gene_symbols_dataset_2181.csv"
+# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/data/Pasini2011_GSE38749_stomach cancer_our_pancancer_signature_probesets_dataset_1786.csv"
 
-# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Kim2016_GSE76701_gene_symbols_dataset_7113.csv"
-# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Kim2016_GSE76701_probesets_dataset_7113.csv"
+# fileName <- "../data/Shi2010_GSE24080_multiple_myeloma_our_pancancer_signature_probesets_dataset_1786.csv"
 
+# source("preparation_dataset_multiple_myeloma_our_signature.r")
+# fileName <- outputFileName
 
-# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Bong2010_GSE15852_probesets_dataset_3875.csv"
-# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Bong2010_GSE15852_gene_symbols_dataset_3875.csv"
-# targetName <- "cancer"
+# fileName <- "../data/Shi2010_GSE24080_multiple_myeloma_our_pancancer_signature_probesets_dataset_1786.csv"
 
-# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Bilbault2017_GSE33118_probesets_dataset_4687.csv"
-# fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Bilbault2017_GSE33118_gene_symbols_dataset_4687.csv"
+# fileName <- "../data/Chen2020_GSE161158_colorectal_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
 
-fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/results/Hiyama2010_GSE16237_our_pancancer_signature_probesets_dataset_188.csv"
+# fileName <- "../data/Reister2012_GSE31684_bladder_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Heaton2011_GSE33371_adrenocortical_carcinoma_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Hatzis2009_GSE25066_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Iqbal2015_GSE58445_non_hodgkin_lymphoma_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Uehara2015_GSE65986_ovarian_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Leich2009_GSE16131_non_hodgkin_lymphoma_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/ZChen2020_GSE157011_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Sieber2010_GSE14333_colorectal_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Marisa2013_GSE39582_colorectal_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Shinto2020_GSE143985_colorectal_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Gotoh2018_GSE92921_colorectal_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Pintilie2013_GSE50081_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Ivshina2006_GSE4922_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Staub2009_GSE12945_colorectal_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Heiskanen2015_GSE68465_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Rousseaux2013_GSE30219_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Sabatier2010_GSE21653_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Schmidt2008_GSE11121_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Desmedt2007_GSE7390_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Sinn2009_GSE124647_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Miller2013_GSE45255_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/MetzgerFilho2016_GSE88770_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Dedeurwaerder2011_GSE20711_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+fileName <-"../data/Huang2014_GSE48390_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
 
 targetName <- "survival"
 
@@ -73,7 +115,7 @@ allFeaturesFormula <- as.formula(paste(as.factor(colnames(patients_data)[target_
 cat("Number of executions = ", execution_number, "\n", sep="")
 for(exe_i in 1:execution_number)
 {
-    cat("[Execlution number ", exe_i, " out of ", execution_number, "]\n", sep="" )
+    cat("[Execution number ", exe_i, " out of ", execution_number, "]\n", sep="" )
     cat("[Randomizing the rows]\n")
     patients_data <- patients_data[sample(nrow(patients_data)),] # shuffle the rows
 
