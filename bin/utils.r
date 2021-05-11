@@ -21,8 +21,8 @@ computeExecutionTime <- function(){
   totalTime <- thisEndTime - global_start_time
   cat("\nTotal execution time: ", (totalTime)[[1]], " seconds\n", sep="")
   
-  td <- as.period(difftime(Sys.time(), global_start_time))
-  cat(sprintf('%d days, %02d hours, %02d minutes, %02.2f seconds\n\n', day(td), td@hour, minute(td), round(td,2)))
+  td <-  as.period(difftime(Sys.time(), global_start_time)) #seconds_to_period(totalTime)
+  cat(sprintf('%d days, %02d hours, %02d minutes, %02.2f seconds\n\n', day(td), td@hour, minute(td), td$.Data))
 }
 
 
@@ -160,12 +160,12 @@ imbalance_retriever <- function(thisVector)
   cat("\n[Imbalance of this dataset]\n")
   number_of_elements_of_first_class <- unname(table(thisVector)[1])
   name_of_elements_of_first_class <- names(table(thisVector)[1])
-  cat("[class: ",name_of_elements_of_first_class, "  #elements = ", number_of_elements_of_first_class, "]\n", sep="")
+  cat("[class: ",name_of_elements_of_first_class, "  #elements = ", number_of_elements_of_first_class, "]\t", sep="")
   cat(dec_three(unname(table(thisVector))[1]*100/length(thisVector)),"%\n", sep="")
   
   number_of_elements_of_second_class <-unname(table(thisVector)[2])
   name_of_elements_of_second_class <-names(table(thisVector)[2])
-  cat("[class: ",name_of_elements_of_second_class, "  #elements = ", number_of_elements_of_second_class, "]\n", sep="")
+  cat("[class: ",name_of_elements_of_second_class, "  #elements = ", number_of_elements_of_second_class, "]\t", sep="")
   cat(dec_three(unname(table(thisVector))[2]*100/length(thisVector)),"%\n", sep="")
   
   cat("\n")

@@ -7,7 +7,7 @@ execution_number <- 100
 
 EXP_ARG_NUM <- 2
 
-TRAIN_SET_OVERSAMPLING_SYNTHETIC <- FALSE
+TRAIN_SET_OVERSAMPLING_SYNTHETIC <- TRUE
 
 # fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/data/Hiyama2010_GSE16237_neuroblastoma_our_pancancer_signature_probesets_dataset_188.csv"
 
@@ -90,7 +90,15 @@ TRAIN_SET_OVERSAMPLING_SYNTHETIC <- FALSE
 
 # fileName <-"../data/DelRoi2017_GSE72970_colorectal_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
 
-fileName <-"../data/Bild2005_GSE3141_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+# fileName <-"../data/Bild2005_GSE3141_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Botling2012_GSE37745_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Kohno2011_GSE31210_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Micke2011_GSE28571_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+fileName <-"../data/Philipsen2010_GSE19188_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
 
 targetName <- "survival"
 
@@ -125,6 +133,10 @@ patients_data$"sampleID" <- NULL
 patients_data <- patients_data%>%select(-targetName,targetName)
 target_index <- dim(patients_data)[2]    
 patients_data_original <- patients_data
+
+cat("original dataset:\n")
+dataset_dim_retriever(patients_data_original)
+imbalance_retriever(patients_data_original[,target_index])
 
 patients_data[,target_index] <- as.factor(patients_data[,target_index])
 
@@ -253,5 +265,9 @@ cat("\n\n=== === === ===\n\n\n")
 #   cat("\t", colnames(meanSigmaRowResults), "\\\\ \n", sep=" & ")
 #     cat("mean ", as.character(dec_three((meanSigmaRowResults)["mean",])), sep=" & ")
 #     cat("$\\sigma$", as.character(dec_three((meanSigmaRowResults)["std.dev",])), "\\\\ \n", sep=" & ")
+
+cat("original dataset:\n")
+dataset_dim_retriever(patients_data_original)
+imbalance_retriever(patients_data_original[,target_index])
 
 computeExecutionTime()
