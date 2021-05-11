@@ -7,7 +7,7 @@ execution_number <- 100
 
 EXP_ARG_NUM <- 2
 
-TRAIN_SET_OVERSAMPLING_SYNTHETIC <- TRUE
+TRAIN_SET_OVERSAMPLING_SYNTHETIC <- FALSE
 
 # fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/data/Hiyama2010_GSE16237_neuroblastoma_our_pancancer_signature_probesets_dataset_188.csv"
 
@@ -68,7 +68,29 @@ TRAIN_SET_OVERSAMPLING_SYNTHETIC <- TRUE
 
 # fileName <-"../data/Dedeurwaerder2011_GSE20711_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
 
-fileName <-"../data/Huang2014_GSE48390_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+# fileName <-"../data/Huang2014_GSE48390_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Jezequel2015_GSE58812_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Karn2011_GSE31519_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Kim2020_GSE135565_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Lin2009_GSE19697_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Loi2008_GSE9195_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Wang2010_GSE19615_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Yenamandra2015_GSE61304_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Smith2009a_GSE17536_colorectal_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Smith2009b_GSE17537_colorectal_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/DelRoi2017_GSE72970_colorectal_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+fileName <-"../data/Bild2005_GSE3141_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
 
 targetName <- "survival"
 
