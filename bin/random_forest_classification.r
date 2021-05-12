@@ -108,9 +108,19 @@ EXP_ARG_NUM <- 2
 
 # fileName <- "../data/Tsao2010_GSE14814_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
 
-fileName <- "../data/Xie2011_GSE29013_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+# fileName <- "../data/Xie2011_GSE29013_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
 
-TRAIN_SET_OVERSAMPLING_SYNTHETIC <- TRUE
+# fileName <- "../data/Kawaguchi2012_GSE34771_non_Hodgkin_lymphoma_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Spivak2014_GSE47018_leukemia_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Herold2013_GSE37642_leukemia_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Herold2011_GSE22762_leukemia_our_pancancer_signature_probesets_dataset_1786.csv"
+
+fileName <- "../data/Metzeler2018_GSE12417_leukemia_our_pancancer_signature_probesets_dataset_1786.csv"
+
+TRAIN_SET_OVERSAMPLING_SYNTHETIC <- FALSE
 
 targetName <- "survival"
 

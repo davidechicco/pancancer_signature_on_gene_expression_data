@@ -23,7 +23,8 @@ if( length(bioCpackagesNotInstalled) ) {
 }
 
 library("easypackages")
-libraries(listOfBiocPackages)  
+libraries(listOfBiocPackages)
+libraries(list.of.packages)  
 
 # Function that retrieves the annotations of a probeset list.
 # Parameters: 
@@ -85,7 +86,9 @@ for(i in 1:nrow(annotations)) {
 }
 cat("\n")
 
-# entrezGeneIDlist <- gconvert(annotations$"Ensembl Gene ID",  organism = "hsapiens", target="ENTREZGENE_ACC")
+entrezGeneIDlist <- gconvert(annotations$"Ensembl Gene ID",  organism = "hsapiens", target="ENTREZGENE_ACC")
+print(entrezGeneIDlist$input)
+
 
 if(nrow(annotations) < length(our_merged_pancancer_prognostic_signature)) {
     cat("Attention: only ", nrow(annotations), " probesets out of ", length(our_merged_pancancer_prognostic_signature), " have annotations\n", sep="")
