@@ -78,6 +78,13 @@ annotations <- retrieveAnnotations_GPL96(our_merged_pancancer_prognostic_signatu
 cat("annotations:\n")
 print(annotations[,c("Affy HG U133A probeset", "Associated Gene Name")])
 
+for(i in 1:nrow(annotations)) {
+
+     this_gene_symbol <- annotations[i,6]
+     cat(this_gene_symbol, "\", \"", sep="")
+}
+cat("\n")
+
 # entrezGeneIDlist <- gconvert(annotations$"Ensembl Gene ID",  organism = "hsapiens", target="ENTREZGENE_ACC")
 
 if(nrow(annotations) < length(our_merged_pancancer_prognostic_signature)) {

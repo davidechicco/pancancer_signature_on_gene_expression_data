@@ -7,7 +7,7 @@ execution_number <- 100
 
 EXP_ARG_NUM <- 2
 
-TRAIN_SET_OVERSAMPLING_SYNTHETIC <- TRUE
+
 
 # fileName <- "/home/dave/my_projects/probesets_versus_gene_symbols/data/Hiyama2010_GSE16237_neuroblastoma_our_pancancer_signature_probesets_dataset_188.csv"
 
@@ -98,7 +98,19 @@ TRAIN_SET_OVERSAMPLING_SYNTHETIC <- TRUE
 
 # fileName <-"../data/Micke2011_GSE28571_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
 
-fileName <-"../data/Philipsen2010_GSE19188_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+# fileName <-"../data/Philipsen2010_GSE19188_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Beauchamp2014_GSE38832_colorectal_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <-"../data/Potti2006_GSE3593_colorectal_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Son2007_GSE8894_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+# fileName <- "../data/Tsao2010_GSE14814_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+fileName <- "../data/Xie2011_GSE29013_lung_cancer_our_pancancer_signature_probesets_dataset_1786.csv"
+
+TRAIN_SET_OVERSAMPLING_SYNTHETIC <- TRUE
 
 targetName <- "survival"
 
