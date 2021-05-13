@@ -1,7 +1,7 @@
 setwd(".")
 options(stringsAsFactors = FALSE)
 cat("\014")
-set.seed(11)   
+# set.seed(11)   
 
 list.of.packages <- c("easypackages", "ggplot2", "lubridate")
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]

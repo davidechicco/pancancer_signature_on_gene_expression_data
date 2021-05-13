@@ -47,13 +47,14 @@ gset <- getGEO(GSE_code,  GSEMatrix =TRUE, getGPL=FALSE)
 if (length(gset) > 1) idx <- grep(thisGEOplatform, attr(gset, "names")) else idx <- 1
 gset <- gset[[idx]]
 gene_expression <- as.data.frame(exprs(gset))
+gene_expression_original <- as.data.frame(exprs(gset))
 
 cat("str(gset@phenoData@data)\n")
 print(str(gset@phenoData@data))
 cat("str(gset@phenoData@data)\n")
 
 
-LABEL_DETECTED <- FALSE  
+LABEL_DETECTED <- TRUE  
  
  if(LABEL_DETECTED == TRUE) {
  
@@ -79,6 +80,9 @@ LABEL_DETECTED <- FALSE
     targetName <- "survival"
     
     labels_df_temp <- as.data.frame(label_list)
+    
+    gene_expression <- gene_expression_original[,((gset@phenoData@data[gset@phenoData@data$"tissue type:ch1"=="tumor",]) %>% rownames())]
+    
     
     labels_df <- as.data.frame(t(labels_df_temp))
     colnames(labels_df) <- colnames(gene_expression)
@@ -120,7 +124,7 @@ LABEL_DETECTED <- FALSE
     
     outputFileName <- paste0(folderPath, datasetName, "_", GSE_code, "_", cancer_type,  "_", signature_name, "_probesets_dataset_", exe_num, ".csv")
     write.table(tableOnlyOnesAndZeros, file=outputFileName, row.names=FALSE, sep=",")
-    cat("saved file  ", outputFileName, "\n")
+    # cat("saved file  ", outputFileName, "\n")
     
 }
 
