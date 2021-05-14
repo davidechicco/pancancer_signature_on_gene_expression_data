@@ -3,7 +3,7 @@ options(stringsAsFactors = FALSE)
 cat("\014")
 # set.seed(11)
 
-list.of.packages <- c("easypackages", "plyr") # other packages
+list.of.packages <- c("easypackages", "dplyr") # other packages
 new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
 if(length(new.packages)) install.packages(new.packages, repos="https://utstat.toronto.edu/cran/")
 
@@ -32,10 +32,10 @@ libraries(listOfBiocPackages)
 
 outputFileName <- ""
 
-GSE_code <- "GSE7788" # this line will change for each different dataset
-thisGEOplatform <- "GPL570" # this line will change for each different dataset
-datasetName <-  "VanLoo2009" # this line will change for each different dataset
-cancer_type <- "lymphoma" # this line will change for each different dataset
+GSE_code <- "GSE8970" # this line will change for each different dataset
+thisGEOplatform <- "GPL96" # this line will change for each different dataset
+datasetName <-  "Raponi2007" # this line will change for each different dataset
+cancer_type <- "leukemia" # this line will change for each different dataset
 
 cat("\n\tGSE_code: ", GSE_code, "\n", sep="")
 cat("\tthisGEOplatform: ", thisGEOplatform, "\n", sep="")
@@ -52,7 +52,6 @@ cat("str(gset@phenoData@data)\n")
 print(str(gset@phenoData@data))
 cat("str(gset@phenoData@data)\n")
 
-
 LABEL_DETECTED <- FALSE  
  
  if(LABEL_DETECTED == TRUE) {
@@ -63,10 +62,10 @@ LABEL_DETECTED <- FALSE
     i <- 1
     for(thisTitle in gset@phenoData@data$"characteristics_ch1") { # this line will change for each different dataset  
       
-	if(grepl("alive", thisTitle, fixed=TRUE)) { # this line will change for each different dataset
-	      label_list[[i]] <-  1
-          } else if(grepl("death", thisTitle, fixed=TRUE)) { # this line will change for each different dataset
-	    label_list[[i]] <- 0
+	if(grepl("(0=alive/1=dead): 1", thisTitle, fixed=TRUE)) { # this line will change for each different dataset
+	      label_list[[i]] <-  0
+          } else if(grepl("(0=alive/1=dead): 0", thisTitle, fixed=TRUE)) { # this line will change for each different dataset
+	    label_list[[i]] <- 1
 	  } else {
              label_list[[i]] <- -1
 	  }
