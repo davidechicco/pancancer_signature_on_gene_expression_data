@@ -120,7 +120,11 @@ EXP_ARG_NUM <- 2
 
 # fileName <- "../data/Metzeler2018_GSE12417_leukemia_our_pancancer_signature_probesets_dataset_1786.csv"
 
-fileName <- "../data/VanLoo2009_GSE7788_lymphoma_our_pancancer_signature_probesets_dataset_4134.csv"
+# fileName <- "../data/VanLoo2009_GSE7788_lymphoma_our_pancancer_signature_probesets_dataset_4134.csv"
+
+# fileName <- "../data/Mulligan2007_GSE9782_multiple_myeloma_our_pancancer_signature_probesets_dataset_7648.csv"
+
+fileName <- "../data/Bogunovic2009_GSE19234_skin_cancer_our_pancancer_signature_probesets_dataset_5056.csv"
 
 TRAIN_SET_OVERSAMPLING_SYNTHETIC <- FALSE
 
