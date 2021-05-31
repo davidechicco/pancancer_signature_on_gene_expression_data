@@ -10,6 +10,8 @@ if(length(new.packages)) install.packages(new.packages)
 num_to_return <- 1
 exe_num <- sample(1:as.numeric(10000), num_to_return)
 
+thisFontSize <- 15
+
 library("easypackages")
 libraries(list.of.packages)
 
@@ -19,7 +21,7 @@ data_table$"cancer_type" <- gsub("_", " ", data_table$"cancer_type")
 data_table$"normMCC"  <- (data_table$"MCC" + 1) / 2
 
 list_of_rates <- c("F1_score", "accuracy", "TPR", "TNR", "PPV", "NPV", "PR_AUC", "ROC_AUC", "normMCC")
-# list_of_rates <- c("F1_score", "accuracy")
+# list_of_rates <- c("F1_score")
 theseColors <- setNames(rainbow_hcl(nrow(data_table)), levels(data_table$"cancer_type")  )
 
 data_table$"cancer_type_factor" <- factor(data_table$"cancer_type", levels = data_table$"cancer_type")
@@ -36,7 +38,11 @@ for(this_rate in list_of_rates){
 
    # p_this_rate_plot <- ggplot(data=data_table, mapping=aes(x=reorder(cancer_type, -.data[[this_rate]]), y=.data[[this_rate]], color=cancer_type))  + geom_bar(stat="identity") + scale_color_manual(values=theseColors)
     
-    p_this_rate_plot <- ggplot(data_table, aes(x=reorder(cancer_type, -.data[[this_rate]]), y=.data[[this_rate]], fill=cancer_type))  + geom_bar(stat="identity")  + ylab("") + xlab("") + ggtitle(this_rate_without_underscore)  +  theme(plot.title = element_text(hjust = 0.5), axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank()) 
+    p_this_rate_plot <- ggplot(data_table, aes(x=reorder(cancer_type, -.data[[this_rate]]), y=.data[[this_rate]], fill=cancer_type))  + geom_bar(stat="identity")  + ylab("") + xlab("") + ggtitle(this_rate_without_underscore)  +  theme(plot.title = element_text(hjust = 0.5, size = thisFontSize), legend.title=element_text(size=thisFontSize), legend.text=element_text(size=thisFontSize), axis.title.x=element_blank(), axis.text.x=element_blank(), axis.ticks.x=element_blank()) 
+    
+#     theme(plot.title = element_text(size = 12, face = "bold"),
+#     legend.title=element_text(size=10), 
+#     legend.text=element_text(size=9))
     
     p_this_rate_plot <- p_this_rate_plot + scale_fill_discrete(breaks=data_table$"cancer_type")
     
