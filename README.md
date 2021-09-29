@@ -1,9 +1,9 @@
-# Pan-cancer signature on microarray gene expression data
+# Pan-cancer signature on gene expression data
 
 ## Requirements
 To run the scripts of this repository, the user needs to have installed:
-* `R` (version >= 3.6)
-* `R` libraries: `easypackages`, `plyr`, `annotate`, `GEOquery`, `geneExpressionFromGEO`, `randomForest`,  `PRROC`, `e1071`, `class`, `gmodels`, `formula.tools`, `dplyr`, `pastecs`, `ROSE`
+* R (version >= 3.6)
+* R libraries: `easypackages`, `plyr`, `annotate`, `GEOquery`, `geneExpressionFromGEO`, `randomForest`,  `PRROC`, `e1071`, `class`, `gmodels`, `formula.tools`, `dplyr`, `pastecs`, `ROSE`
 
 ## Exectution
 The first step is the execute the script that downloads the dataset from GEO, applies our pan-cancer signature, and produces the dataset ready for the binary classification
@@ -11,11 +11,16 @@ For example, if the user wants to download the [GSE25066 Hatzis2009 dataset](htt
 
 `Rscript preparation_dataset_breast_cancer_Hatzis2009_our_signature.r`
 
-This script execution will generate an output file whose name is similar to `Hatzis2009_GSE25066_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv`
+This script execution will generate an output file whose name will be similar to: `Hatzis2009_GSE25066_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv`
 
 Once the previous script finished correctly, the user will have to edit the first lines of the Random Forests script by inserting the name of the generated data file of the Hatzis2009 dataset. Then, she/will will have to execute that script:
 
 `Rscript random_forest_classification.r`
+
+## Article
+More information about this study will be available in the following article:
+
+> Davide Chicco, Abbas Alameer,  Sara Rahmati, "Towards a potential pan-cancer prognostic signature for gene expression based on probesets and ensemble machine learning", 2021, in preparation.
 
 ## Contacts
 The software code was developed by [Davide Chicco](https://www.DavideChicco.it). Questions should be
