@@ -21,7 +21,7 @@ Once the previous script finished correctly, the user will have to edit the firs
 ## Article
 More information about this study will be available in the following article:
 
-> Davide Chicco, Abbas Alameer,  Sara Rahmati, and Giuseppe Jurman "Towards a potential pan-cancer prognostic signature for gene expression based on probesets and ensemble machine learning", 2022, under review.
+> Davide Chicco, Abbas Alameer,  Sara Rahmati, and Giuseppe Jurman, "Towards a potential pan-cancer prognostic signature for gene expression based on probesets and ensemble machine learning", 2022, under review.
 
 ## Contacts
 The software code was developed by [Davide Chicco](https://www.DavideChicco.it). Questions should be
