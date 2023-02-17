@@ -19,7 +19,7 @@ Once the previous script finished correctly, the user will have to edit the firs
 `Rscript random_forest_classification.r Hatzis2009_GSE25066_breast_cancer_our_pancancer_signature_probesets_dataset_1786.csv`
 
 ## Article
-More information about this study will be available in the following article:
+More information about this study can be found in the following article:
 
 > Davide Chicco, Abbas Alameer,  Sara Rahmati, and Giuseppe Jurman, "[Towards a potential pan-cancer prognostic signature for gene expression based on probesets and ensemble machine learning](https://doi.org/10.1186/s13040-022-00312-y)", _BioData Mining_ 15, 28 (2022).
 
